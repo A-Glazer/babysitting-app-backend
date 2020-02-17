@@ -1,2 +1,0 @@
-class BabysittersController < ApplicationController
-end
