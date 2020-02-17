@@ -1,0 +1,2 @@
+class Babysitter < ApplicationRecord
+end
