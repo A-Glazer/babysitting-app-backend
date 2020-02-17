@@ -4,8 +4,8 @@
         :first_name - string
         :last_name - string
         :phone_number - sting
-        :week_available - checkbox
-        :time_available - checkbox
+        :week_available - string (checkbox)
+        :time_available - string (checkbox)
 
 
 2. Comments
@@ -14,5 +14,5 @@
         :babysitter_id - integer
         :message - sting
         :name -string
-        :date - datetime
+       
 
