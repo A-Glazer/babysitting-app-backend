@@ -1,6 +1,6 @@
 class API::V1::BabysittersController < ApplicationController
 
-    before_action :find_babysitter
+    before_action :find_babysitter, only: [:show, :destroy]
 
     def index
         @babysitters = Babysitter.all
@@ -17,12 +17,10 @@ class API::V1::BabysittersController < ApplicationController
     end
 
     def show
-        find_babysitter
         render json: @babysitter
     end
 
     def destroy 
-        find_babysitter
         @babysitter.destroy 
     end
 
