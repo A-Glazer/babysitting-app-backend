@@ -1,5 +1,7 @@
 class API::V1::BabysittersController < ApplicationController
 
+    before_action :find_babysitter
+
     def index
         @babysitters = Babysitter.all
         render json: @babysitters
@@ -15,16 +17,20 @@ class API::V1::BabysittersController < ApplicationController
     end
 
     def show
-        @babysitter = Babysitter.find(params[:id])
+        find_babysitter
         render json: @babysitter
     end
 
     def destroy 
-        @babysitter = Babysitter.find(params[:id])
+        find_babysitter
         @babysitter.destroy 
     end
 
     private
+
+    def find_babysitter
+        @babysitter = Babysitter.find(params[:id])
+    end
 
     def babysitter_params
         params.require(:babysitter).permit(:first_name, :last_name, :phone_number)
