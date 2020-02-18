@@ -6,7 +6,12 @@ class API::V1::BabysittersController < ApplicationController
     end
 
     def create
-
+        @babysitter = Babysitter.new(babysitter_params)
+        if @babysitter.save
+            render json: @babysitter
+        else
+            render json: {error: "Error creating a new babysitter"}
+        end
     end
 
     def show
