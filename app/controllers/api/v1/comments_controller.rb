@@ -1,4 +1,4 @@
-class API::V1::CommentsController < ApplicationController
+class Api::V1::CommentsController < ApplicationController
     
     before_action :set_babysitter
 

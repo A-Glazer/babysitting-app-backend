@@ -1,4 +1,4 @@
-class API::V1::SlotsController < ApplicationController
+class Api::V1::SlotsController < ApplicationController
     before_action :set_babysitter
 
     def index

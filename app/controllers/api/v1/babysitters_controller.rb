@@ -1,8 +1,9 @@
-class API::V1::BabysittersController < ApplicationController
+class Api::V1::BabysittersController < ApplicationController
 
-    before_action :find_babysitter, only: [:show, :destroy]
+    # before_action :find_babysitter, only: [:show, :destroy]
 
     def index
+        # binding.pry
         @babysitters = Babysitter.all
         render json: @babysitters
     end
