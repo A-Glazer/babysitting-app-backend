@@ -9,6 +9,7 @@ class API::V1::CommentsController < ApplicationController
 
     def create
        @comment = @babysitter.comments.build(comment_params)
+       render json: @comment
     end
 
     def show
