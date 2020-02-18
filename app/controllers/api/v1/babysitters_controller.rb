@@ -15,11 +15,13 @@ class API::V1::BabysittersController < ApplicationController
     end
 
     def show
-
+        @babysitter = Babysitter.find(params[:id])
+        render json: @babysitter
     end
 
     def destroy 
-
+        @babysitter = Babysitter.find(params[:id])
+        @babysitter.destroy 
     end
 
     private
