@@ -8,15 +8,17 @@ class API::V1::CommentsController < ApplicationController
     end
 
     def create
-       
+       @comment = @babysitter.comments.build(comment_params)
     end
 
     def show
-       
+       @comment = @babysitter.comments.find_by(id: params[:id])
+       render json: @comment
     end
 
     def destroy 
-       
+        @comment = @babysitter.comments.find_by(id: params[:id])
+        @comment.destroy
     end
 
     private
