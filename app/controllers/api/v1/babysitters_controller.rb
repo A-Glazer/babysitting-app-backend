@@ -9,6 +9,7 @@ class Api::V1::BabysittersController < ApplicationController
     end
 
     def create
+        # binding.pry
         @babysitter = Babysitter.new(babysitter_params)
         if @babysitter.save
             render json: @babysitter

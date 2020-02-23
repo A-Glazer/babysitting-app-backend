@@ -8,7 +8,7 @@ class Api::V1::SlotsController < ApplicationController
 
     def create
        @slot = @babysitter.slots.build(slot_params)
-       render json: @slot
+       render json: @babysitter
     end
 
     def show
