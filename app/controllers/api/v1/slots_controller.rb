@@ -9,6 +9,7 @@ class Api::V1::SlotsController < ApplicationController
     def create
         # binding.pry
        @slot = @babysitter.slots.build(slot_params)
+        @slot.save
        render json: @babysitter
     end
 
