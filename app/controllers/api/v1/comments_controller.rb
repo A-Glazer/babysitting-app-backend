@@ -18,8 +18,10 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def destroy 
+        # binding.pry
         @comment = @babysitter.comments.find_by(id: params[:id])
         @comment.destroy
+        render json: @babysitter
     end
 
     private

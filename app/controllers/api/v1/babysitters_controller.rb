@@ -12,6 +12,7 @@ class Api::V1::BabysittersController < ApplicationController
         # binding.pry
         @babysitter = Babysitter.new(babysitter_params)
         if @babysitter.save
+            # binding.pry
             render json: @babysitter
         else
             render json: {error: "Error creating a new babysitter"}

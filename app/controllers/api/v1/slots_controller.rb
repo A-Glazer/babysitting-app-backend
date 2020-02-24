@@ -7,11 +7,13 @@ class Api::V1::SlotsController < ApplicationController
     end
 
     def create
+        # binding.pry
        @slot = @babysitter.slots.build(slot_params)
        render json: @babysitter
     end
 
     def show
+        # binding.pry
        @slot = @babysitter.slots.find_by(id: params[:id])
        render json: @slot
     end
