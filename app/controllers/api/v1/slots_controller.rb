@@ -8,9 +8,15 @@ class Api::V1::SlotsController < ApplicationController
 
     def create
         # binding.pry
-       @slot = @babysitter.slots.build(slot_params)
-        @slot.save
-       render json: @babysitter
+        # if (@babysitter.slots.where(day_of_week: params["day_of_week"].to_i, time_of_day: params["time_of_day"].to_i))
+            # render json: @babysitter
+            # binding.pry
+        # else
+        # slot_exist(params)
+            @slot = @babysitter.slots.new(slot_params)
+            @slot.save
+            render json: @babysitter
+        # end
     end
 
     def show
@@ -20,8 +26,11 @@ class Api::V1::SlotsController < ApplicationController
     end
 
     def destroy 
+        # binding.pry
+        # babysitter.slots.find(array => array.day_of_week === slot.day_of_week)
         @slot = @babysitter.slots.find_by(id: params[:id])
         @slot.destroy
+        render json: @slot
     end
 
     private
