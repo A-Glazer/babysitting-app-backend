@@ -4,6 +4,16 @@ class Slot < ApplicationRecord
 
     belongs_to :babysitter
 
+    # validate :time_and_date_exist
+
+    # def time_and_date_exist
+    #     # binding.pry
+    #     if babysitter_id == params[:babysitter_id] && day_of_week == params[:day_of_week] && time_of_day == params[:time_of_day] 
+    #         errors.add(:time_of_day, "already exists")
+    #         # binding.pry
+    #     end
+    # end
+
     # validates :day_of_week, uniqueness: { scope: :time_of_day,
     #     message: "day and time already exists"} 
 
@@ -14,17 +24,4 @@ class Slot < ApplicationRecord
     #     end
     # end
 end
-
-# class MyValidator < ActiveModel::Validator
-#     def validate(record)
-#       unless record.name.starts_with? 'X'
-#         record.errors[:name] << 'Need a name starting with X please!'
-#       end
-#     end
-#   end
-   
-#   class Person
-#     include ActiveModel::Validations
-#     validates_with MyValidator
-#   end
 

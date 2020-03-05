@@ -3,25 +3,31 @@ class Api::V1::SlotsController < ApplicationController
 
     def index
       @slots = @babysitter.slots
+    #   binding.pry
       render json: @slots
     end
 
     def create
         # binding.pry
-        # if (@babysitter.slots.where(day_of_week: params["day_of_week"].to_i, time_of_day: params["time_of_day"].to_i))
-            # render json: @babysitter
-            # binding.pry
-        # else
-        # slot_exist(params)
+        # if @babysitter.slots.where(day_of_week: params["day_of_week"].to_i, time_of_day: params["time_of_day"].to_i)
+        
+        
+        if @day = @babysitter.slots.find_by(day_of_week: params[:day_of_week], time_of_day: params[:time_of_day])
+            @day.update(time_of_day: params[:time_of_day])
+            render json: @babysitter
+        else
+        #     render json: @babysitter
+            # slot_exist(params)
             @slot = @babysitter.slots.new(slot_params)
             @slot.save
             render json: @babysitter
-        # end
+        end
     end
 
     def show
         # binding.pry
        @slot = @babysitter.slots.find_by(id: params[:id])
+    #    binding.pry
        render json: @slot
     end
 

@@ -20,6 +20,7 @@ class Api::V1::BabysittersController < ApplicationController
     end
 
     def show
+        # binding.pry
         render json: @babysitter
     end
 
